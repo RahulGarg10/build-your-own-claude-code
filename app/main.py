@@ -27,6 +27,26 @@ def main():
         # mine: meta-llama/llama-3-8b-instruct:free or original: anthropic/claude-haiku-4.5
         # or openrouter/free
         messages=[{"role": "user", "content": args.p}],
+
+        tools= [
+                    {
+                        "type": "function",
+                        "function": {
+                            "name": "Read",
+                            "description": "Read and return the contents of a file",
+                            "parameters": {
+                            "type": "object",
+                            "properties": {
+                                "file_path": {
+                                "type": "string",
+                                "description": "The path to the file to read"
+                                }
+                            },
+                            "required": ["file_path"]
+                            }
+                        }
+                    }
+                ]
     )
 
 

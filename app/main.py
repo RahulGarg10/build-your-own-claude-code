@@ -26,9 +26,8 @@ def main():
         model="anthropic/claude-haiku-4.5", 
         # mine: meta-llama/llama-3-8b-instruct:free or original: anthropic/claude-haiku-4.5
         # or openrouter/free
-        messages=[{"role": "user", "content": args.p}],
+        messages=[{"role": "user", "content": args.p}])
 
-        
 
     if not chat.choices or len(chat.choices) == 0:
        raise RuntimeError("no choices in response")
